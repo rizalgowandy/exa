@@ -8,7 +8,7 @@ use crate::output::file_name::Options as FileStyle;
 use crate::theme::Theme;
 
 
-#[derive(PartialEq, Debug, Copy, Clone)]
+#[derive(PartialEq, Eq, Debug, Copy, Clone)]
 pub struct Options {
     pub across: bool,
 }
@@ -46,6 +46,7 @@ impl<'a> Render<'a> {
             grid.add(tg::Cell {
                 contents:  filename.strings().to_string(),
                 width:     *filename.width(),
+                alignment: tg::Alignment::Left,
             });
         }
 
